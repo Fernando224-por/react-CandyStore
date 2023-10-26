@@ -4,6 +4,7 @@ import HomePage from "./views/homePage.jsx"
 import LoginPage from "./views/LoginPage.jsx"
 import RegisterPage from "./views/RegisterPage.jsx"
 import Dashboard from "./views/Dashboard.jsx"
+import ProductForm  from "./views/ProductForm.jsx"
 import NavBar from "./components/NavBar.jsx"
 import ProtectedRoute from "./protectedRoute.jsx"
 import Profile from "./views/Profile.jsx"
@@ -20,6 +21,7 @@ function App() {
 
             <Route element={<ProtectedRoute/>}>
               <Route path="/Dasboard" element={<Dashboard/>}></Route>
+              <Route path="/newProduct" element={<ProductForm/>}></Route>
               <Route path="/Profile" element={<Profile/>}></Route>
             </Route>
 
