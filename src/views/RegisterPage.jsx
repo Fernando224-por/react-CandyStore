@@ -29,7 +29,7 @@ function RegisterPage () {
                 }
                 <form onSubmit={ sendData }>
                     <div>
-                        <input type="text" {...register('username',{ required: true, minLength:4, maxLength:150 })}
+                        <input type="text" {...register('name',{ required: true, minLength:4, maxLength:150 })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='username'
                         />
                         {
