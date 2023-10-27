@@ -1,2 +1,3 @@
 import axios from './axios.js'
-export const postProducts = product => axios.post(`/newProduct`, product)
+export const requestProduct = product => axios.post(`/newProduct`, product)
+export const requestProductSeller = () => axios.get(`/sellerProducts`)

@@ -17,7 +17,7 @@ function LoginPage () {
         }
     }, [isAuthenticated, navegate]) 
     return (
-        <div className="h-[calc(100vh-100px)] flex items-center justify-center ">
+        <div className="h-[calc(100vh-100px)] flex items-center justify-center">
             <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md"> 
                 <h1 className="text-3xl font-bold text-center my-2">Login</h1>
                 {
