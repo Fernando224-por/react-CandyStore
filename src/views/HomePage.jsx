@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useProduct } from "../context/productContext"
-import ProductCard from "../components/ProductCard"
+import GuestCard from "../components/GuestCard"
 function HomePage() {
   const { products, getProductGuest } = useProduct()
   useEffect(() => {
@@ -12,7 +12,7 @@ function HomePage() {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
       {
         products.map( product => (
-          <ProductCard product={product} key={product._id}/>
+          <GuestCard product={product} key={product._id}/>
         ))
       }
     </div>

@@ -25,6 +25,7 @@ function App() {
               <Route element={<ProtectedRoute/>}>
                 <Route path="/Dasboard" element={<Dashboard/>}></Route>
                 <Route path="/newProduct" element={<ProductForm/>}></Route>
+                <Route path="/Product/:id" element={<ProductForm/>}></Route>
                 <Route path="/Profile" element={<Profile/>}></Route>                
               </Route>
 
