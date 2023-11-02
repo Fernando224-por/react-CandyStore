@@ -7,7 +7,7 @@ function Dashboard() {
   const { products, getProductSeller } = useProduct()
   useEffect(() => {
     getProductSeller()
-  }, [getProductSeller])
+  }, [])
   if (products.length === 0) {
     return <h1>No products</h1>
   }

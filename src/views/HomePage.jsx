@@ -5,7 +5,7 @@ function HomePage() {
   const { products, getProductGuest } = useProduct()
   useEffect(() => {
     getProductGuest()
-  }, [getProductGuest])
+  }, [])
   if (products.length === 0) {
     return <h1 className="text-center my-5 text-2xl">No hay productos disponibles</h1>
   }

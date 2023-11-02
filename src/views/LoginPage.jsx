@@ -53,7 +53,7 @@ function LoginPage () {
                         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Login</button>
                     </div>
                 </form>
-                <p className="flex gap-x-2 justify-between ">
+                <p className="flex gap-x-2 justify-between my-3">
                     Do not have account? <Link to={'/register'} className="text-sky-500">Sign up</Link>
                 </p>
             </div>
