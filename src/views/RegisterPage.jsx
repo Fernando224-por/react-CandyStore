@@ -29,12 +29,25 @@ function RegisterPage () {
                 }
                 <form onSubmit={ sendData }>
                     <div>
-                        <input type="text" {...register('name',{ required: true, minLength:4, maxLength:150 })}
+                        <input type="text" {...register('name', {
+                            required: {
+                                value: true,
+                                message: "Name is required"
+                            },
+                            minLength: {
+                                value: 4,
+                                message: 'You name must be have 4 characters'
+                            },
+                            maxLength: {
+                                value: 150,
+                                message: 'You name must be menor to 150 characters'
+                            }
+                        })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='username'
                         />
                         {
                             errors.username && (
-                                <p className="text-red-500" >Username is Required</p>
+                                <p className="text-red-500" >{errors.name.message}</p>
                             )
                         }
                     </div>
@@ -51,12 +64,20 @@ function RegisterPage () {
                     </div>
 
                     <div>
-                        <input type="email" {...register('email',{ required: true })}
+                        <input type="email" {...register('email', { required: {
+                            value: true,
+                            message: "Email is Rquired"
+                        },
+                        pattern: {
+                            value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/,
+                            message: "This email is invalid"
+                        }
+                        })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='email'
                         />
                         {
                             errors.email && (
-                                <p className="text-red-500" >Email is Required</p>
+                                <p className="text-red-500" >{errors.email.message}</p>
                             )
                         }                    
                     </div>
