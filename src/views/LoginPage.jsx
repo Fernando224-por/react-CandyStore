@@ -29,23 +29,40 @@ function LoginPage () {
                 }
                 <form onSubmit={ sendData }>
                     <div>
-                        <input type="email" {...register('email',{ required: true })}
+                        <input type="email" {...register('email',{ 
+                            required: {
+                                value: true,
+                                message: 'Email is required'
+                            },
+                            pattern: {
+                                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/,
+                                message: "This email is invalid"
+                            }
+                        })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='email'
                         />
                         {
                             errors.email && (
-                                <p className="text-red-500" >Email is Required</p>
+                                <p className="text-red-500" >{errors.email.message}</p>
                             )
                         }                    
                     </div>
 
                     <div>
-                    <input type="password" {...register('password', { required:true, minLength: 2 })}
+                    <input type="password" {...register('password', { required: {
+                        value: true,
+                        message: 'Password is required'
+                    } ,
+                    minLength: {
+                        value: 8,
+                        message: 'Your password need minimun 8 characters'
+                    }
+                    })}
                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='password'
                     />
                         {
                             errors.password && (
-                                <p className="text-red-500">password is Required</p>
+                                <p className="text-red-500">{errors.password.message}</p>
                             )
                         }                
                     </div>

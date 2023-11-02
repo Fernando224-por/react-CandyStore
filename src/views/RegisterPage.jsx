@@ -53,12 +53,24 @@ function RegisterPage () {
                     </div>
 
                     <div>
-                        <input type="number" {...register('phone',{ required: true, minLength:4, maxLength:150, valueAsNumber: true })}
+                        <input type="number" {...register('phone',{ required: {
+                            value: true,
+                            message: 'Phone is required'
+                        },
+                        maxLength: {
+                            value: 11,
+                            message: 'You phone number must have 11 numbers'
+                        },
+                        valueAsNumber: {
+                            value: true,
+                            message: 'This field must be number'
+                        }
+                        })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='Phone number'
                         />
                         {
                             errors.username && (
-                                <p className="text-red-500" >Phone Number is Required</p>
+                                <p className="text-red-500" >{errors.phone.message}</p>
                             )
                         }
                     </div>
@@ -83,7 +95,15 @@ function RegisterPage () {
                     </div>
 
                     <div>
-                    <input type="password" {...register('password', { required:true, minLength: 8 })}
+                    <input type="password" {...register('password', { required: {
+                        value: 'true',
+                        message: 'password is required'
+                    },
+                    minLength: {
+                        value: 8,
+                        message: 'Your password need minimun 8 characters'
+                    }
+                    })}
                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='password'
                     />
                         {
