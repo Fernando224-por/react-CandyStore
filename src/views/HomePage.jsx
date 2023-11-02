@@ -6,6 +6,9 @@ function HomePage() {
   useEffect(() => {
     getProductGuest()
   }, [getProductGuest])
+  if (products.length === 0) {
+    return <h1 className="text-center my-5 text-2xl">No hay productos disponibles</h1>
+  }
   return (
     <>    
     <div className="text-center my-5 text-2xl"><h1>Estos son nuestros productos</h1></div>

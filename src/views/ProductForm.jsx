@@ -1,16 +1,45 @@
 import { useForm, Controller } from "react-hook-form"
 import { useProduct } from "../context/productContext"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 import { Toaster } from "sonner"
-import { successAction, badAction } from "../utils/Toast.jsx"
+import { successAction, badAction, updateAction } from "../utils/Toast.jsx"
 function ProductForm() {
-  const { register, handleSubmit, control } = useForm()
-  const { createProduct } = useProduct()
+  const { register, handleSubmit, control, setValue } = useForm()
+  const { createProduct, getProduct, updateProduct } = useProduct()
+  const params = useParams()
+  useEffect (() => {
+    async function loadProduct() {
+      if (params.id) {
+        const product = await getProduct(params.id)
+        setValue('name', product.data.name)
+        setValue('region', product.data.region),
+        setValue('price', product.data.price),
+        setValue('category', product.data.category)
+      }
+    }
+    loadProduct()
+  },[params, getProduct, setValue])
   const sendData = handleSubmit((data)=>{
-    try {
-      createProduct(data)
-      successAction()
-    } catch (error) {
-      badAction()
+    const validData = {
+      ...data
+    }
+    if (!params.id) {
+      try {
+        createProduct(validData)
+        successAction()
+      } catch (error) {
+        badAction()
+      }
+
+    } else {
+      try {
+        updateProduct(params.id, validData)
+        updateAction()
+      } catch (error) {
+        console.log(error)
+        badAction()
+      }
     }
   })
   return (

@@ -5,8 +5,9 @@ function GuestCard({ product }) {
         <header className="flex justify-between">
             <h1 className="text-2xl font-bold"> {product.name} </h1>
         </header>
-        <p className="text-slate-300">{product.region}</p>
+        <p className="text-slate-300">Region: {product.region}</p>
         <p className="text-slate-300">Price: {product.price}</p>
+        <p className="text-slate-300">Category: {product.category}</p>
         <p className="text-slate-300">Offer by: {product.user.name}</p>
     </div>
   )

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { requestProduct, requestProductSeller, requestProductGuest, requestDeleteProduct, requestGetProduct } from "../API/product.js";
+import { requestProduct, requestProductSeller, requestProductGuest, requestDeleteProduct, requestGetProduct, requestUpdateProduct } from "../API/product.js";
 
 export const ProductContext = createContext()
 // eslint-disable-next-line react-refresh/only-export-components
@@ -39,7 +39,7 @@ export const ProductProvider =({ children }) => {
     const getProduct = async (id) => {
         try {
             const res = requestGetProduct(id)
-            return res.data
+            return res
         } catch (error) {
             console.log(error)
         }
@@ -54,6 +54,14 @@ export const ProductProvider =({ children }) => {
             console.log(err)
         }
     }
+    const updateProduct = async (id, product) => {
+        try {
+            const res = await requestUpdateProduct(id, product)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return(
         <ProductContext.Provider value={{
@@ -62,7 +70,8 @@ export const ProductProvider =({ children }) => {
             getProductSeller,
             getProductGuest,
             deleteProduct,
-            getProduct
+            getProduct,
+            updateProduct
         }}>
             { children }
         </ProductContext.Provider>

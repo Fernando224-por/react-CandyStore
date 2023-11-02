@@ -17,7 +17,7 @@ function RegisterPage () {
         singup(values)
     })
     return (
-        <div className="h-[calc(100vh-100px)] flex items-center justify-center ">
+        <div className="h-[calc(100vh-100px)] flex items-center justify-center">
             <div className="bg-zinc-800 max-w-md p-10 rounded-md ">
                 <h1 className="text-2xl font-bold text-center my-2">Register</h1>
                 {
@@ -41,7 +41,7 @@ function RegisterPage () {
 
                     <div>
                         <input type="number" {...register('phone',{ required: true, minLength:4, maxLength:150, valueAsNumber: true })}
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='number'
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='Phone number'
                         />
                         {
                             errors.username && (

@@ -15,3 +15,11 @@ export function badAction () {
         position: 'bottom-left'
     })
 }
+
+export function updateAction () {
+    toast.success('!Great', {
+        description: 'Your Product are Updated!, check your Dasboard',
+        style: { background: 'green', color: 'white' },
+        position: 'bottom-left'
+    })
+}
