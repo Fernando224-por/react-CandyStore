@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./context/authContext.jsx"
 import { ProductProvider } from "./context/productContext.jsx"
+import { PaymentProvider } from "./context/paymentContext.jsx"
 import HomePage from "./views/homePage.jsx"
 import LoginPage from "./views/LoginPage.jsx"
 import RegisterPage from "./views/RegisterPage.jsx"
@@ -13,25 +14,28 @@ function App() {
   return (
     <AuthProvider>
       <ProductProvider>
-        <BrowserRouter>
-          <main className="container content-container mx-auto px-10 md:px-0">
-            <NavBar/>
+        <PaymentProvider>
+          <BrowserRouter>
+            <main className="container content-container mx-auto px-10 md:px-0">
+              <NavBar/>
 
-            <Routes>
-              <Route path="/" element={<HomePage/>}></Route>
-              <Route path="/login" element={<LoginPage/>}></Route>
-              <Route path="/register" element={<RegisterPage/>}></Route>
+              <Routes>
+                <Route path="/" element={<HomePage/>}></Route>
+                <Route path="/login" element={<LoginPage/>}></Route>
+                <Route path="/register" element={<RegisterPage/>}></Route>
 
-              <Route element={<ProtectedRoute/>}>
-                <Route path="/Dasboard" element={<Dashboard/>}></Route>
-                <Route path="/newProduct" element={<ProductForm/>}></Route>
-                <Route path="/Product/:id" element={<ProductForm/>}></Route>
-                <Route path="/Profile" element={<Profile/>}></Route>                
-              </Route>
+                <Route element={<ProtectedRoute/>}>
+                  <Route path="/Dasboard" element={<Dashboard/>}></Route>
+                  <Route path="/newProduct" element={<ProductForm/>}></Route>
+                  <Route path="/Product/:id" element={<ProductForm/>}></Route>
+                  <Route path="/Profile" element={<Profile/>}></Route>                
+                </Route>
 
-            </Routes>
-          </main>
-        </BrowserRouter>
+              </Routes>
+            </main>
+          </BrowserRouter>
+        </PaymentProvider>
+
       </ProductProvider>
     </AuthProvider>
   )

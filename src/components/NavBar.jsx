@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-md">
-    <Link className="text-2xl font-bold" to={isAuthenticated ? "/Dasboard" : "/"}>Tu Dulce En Linea :D</Link>            
+    <Link className="text-2xl font-bold" to={isAuthenticated ? "/Dasboard" : "/"}>Candy Store :D</Link>            
         <ul className="flex gap-x-2">
             { isAuthenticated ? (
                 <>
