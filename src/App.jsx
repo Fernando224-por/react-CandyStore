@@ -10,6 +10,7 @@ import ProductForm  from "./views/ProductForm.jsx"
 import NavBar from "./components/NavBar.jsx"
 import ProtectedRoute from "./protectedRoute.jsx"
 import Profile from "./views/Profile.jsx"
+import PaymentStripe from "./views/PaymentStripe.jsx"
 function App() {
   return (
     <AuthProvider>
@@ -23,7 +24,7 @@ function App() {
                 <Route path="/" element={<HomePage/>}></Route>
                 <Route path="/login" element={<LoginPage/>}></Route>
                 <Route path="/register" element={<RegisterPage/>}></Route>
-
+                <Route path="/payment" element={<PaymentStripe/>}></Route>
                 <Route element={<ProtectedRoute/>}>
                   <Route path="/Dasboard" element={<Dashboard/>}></Route>
                   <Route path="/newProduct" element={<ProductForm/>}></Route>
