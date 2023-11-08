@@ -24,7 +24,7 @@ function App() {
                 <Route path="/" element={<HomePage/>}></Route>
                 <Route path="/login" element={<LoginPage/>}></Route>
                 <Route path="/register" element={<RegisterPage/>}></Route>
-                <Route path="/payment" element={<PaymentStripe/>}></Route>
+                <Route path="/checkOut" element={<PaymentStripe/>}></Route>
                 <Route element={<ProtectedRoute/>}>
                   <Route path="/Dasboard" element={<Dashboard/>}></Route>
                   <Route path="/newProduct" element={<ProductForm/>}></Route>

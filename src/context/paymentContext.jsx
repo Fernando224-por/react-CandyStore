@@ -11,13 +11,15 @@ export const usePayment = () => {
 
 // eslint-disable-next-line react/prop-types
 export const PaymentProvider = ({ children }) => {
-    const [payment, setPayment] = useState([])
+    const [payment, setPayment] = useState("")
+    const [secretKey, setSecretPay] = useState("")
     const newPayment = async (Payment) => {
         try {
             const res = await requestPaymentIntent(Payment)
-            console.log(res)
+            console.log(res.data)
+            setSecretPay(res.data)
         } catch (err) {
-            console.error(err)
+            console.error(err.response.data)
         }
     }
     const getKey = async () => {
@@ -32,6 +34,7 @@ export const PaymentProvider = ({ children }) => {
     return (
         <PaymentContext.Provider value={{
             payment,
+            secretKey,
             getKey,
             newPayment
         }}>
