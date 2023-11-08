@@ -7,6 +7,7 @@ function Dashboard() {
   const { products, getProductSeller } = useProduct()
   useEffect(() => {
     getProductSeller()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   if (products.length === 0) {
     return <h1>No products</h1>

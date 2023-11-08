@@ -16,8 +16,7 @@ export const PaymentProvider = ({ children }) => {
     const newPayment = async (Payment) => {
         try {
             const res = await requestPaymentIntent(Payment)
-            console.log(res.data)
-            setSecretPay(res.data)
+            setSecretPay(res.data.clientSecret)
         } catch (err) {
             console.error(err.response.data)
         }
@@ -25,8 +24,7 @@ export const PaymentProvider = ({ children }) => {
     const getKey = async () => {
         try {
             const res = await requestStripeKey()
-            console.log(res.data)
-            setPayment(res.data)
+            setPayment(res.data.publishableKey)
         } catch (err) {
             console.error(err)
         }

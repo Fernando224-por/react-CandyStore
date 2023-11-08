@@ -9,25 +9,18 @@ function PaymentStripe() {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 
-  const paymentString = JSON.stringify(payment);
-  console.log(paymentString)
-  const secretKeyString = JSON.stringify(secretKey)
-  const publicKey = payment.publishableKey
-  console.log(publicKey)
-  const keySecret = secretKey.clientSecret
-  
-    useEffect(() => {
-      if (secretKeyString) {
-        if (typeof paymentString === "string" && paymentString.trim().length > 0) {
-          setStripePromise(loadStripe(publicKey))
-        } else {
-          console.error("El valor de payment no es una cadena válida.");
-        }
-      setClientSecret(keySecret)
-      }
+  const paymentString = payment
+  const secretString = secretKey
+
+  useEffect(() => {
+    if ( typeof paymentString === "string" && paymentString.trim().length > 0) {
+      setStripePromise(loadStripe(paymentString))
+    } else {
+      console.error("object not valid")
+    } 
+      setClientSecret(secretString)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  
   return (
     <>
     <div className="text-center my-5 text-2xl">
