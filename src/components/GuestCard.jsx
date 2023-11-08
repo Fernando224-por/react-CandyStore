@@ -24,18 +24,20 @@ function GuestCard({ product }) {
     }
   })
   return (
-    <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+    <div className="max-w-md w-full p-10 rounded-md border-solid border-2 border-pink-400">
       <form onSubmit={sendData}>
           <header className="flex justify-between">
               <h1 className="text-2xl font-bold" {...register('description', {value: product.name})}> {product.name} </h1>
           </header>
-          <p className="text-slate-300">Region: {product.region}</p>
-          <p className="text-slate-300" {...register('amount', { value: product.price })}>Price: {product.price}</p>
-          <p className="text-slate-300">Category: {product.category}</p>
-          <p className="text-slate-300">Offer by: {product.user.name}</p>
-          <p className="text-slate-300" hidden {...register('seller', {value: product.user._id})}>User Id: {product.user._id}</p>
-          <div className="flex gap-x-2 items-center">
-            <button type="submit" className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 border border-green-700 rounded">Buy now!</button>
+          <div className="py-2">
+            <p className="text-zinc-800">Region: {product.region}</p>
+            <p className="text-zinc-800" {...register('amount', { value: product.price })}>Price: {product.price}$</p>
+            <p className="text-zinc-800">Category: {product.category}</p>
+            <p className="text-zinc-800">Offer by: {product.user.name}</p>
+            <p className="text-zinc-800" hidden {...register('seller', {value: product.user._id})}>User Id: {product.user._id}</p>
+          </div>
+          <div className="flex gap-x-2 items-center py-2">
+            <button type="submit" className="bg-red-300 hover:bg-red-400 text-black font-bold py-2 px-4 border border-red-400 rounded">Buy now!</button>
           </div>
       </form>
     </div>

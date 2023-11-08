@@ -44,21 +44,21 @@ function ProductForm() {
   })
   return (
     <><div className="h-[calc(100vh-100px)] flex items-center justify-center">
-      <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+      <div className="max-w-md w-full p-10 rounded-md border-solid border-2 border-zinc-900">
         <form onSubmit={sendData}>
           <label htmlFor="title">Name of the product</label>
           <input type="text" {...register('name', { require: true })}
             autoFocus
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-3" />
+            className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" />
           <br />
           <label htmlFor="region">Region</label>
           <input type="region" {...register('region', { require: true })}
             autoFocus
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-3" />
+            className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" />
           <br />
           <label htmlFor="price">Price</label>
           <input type="number" {...register('price', { required: true, valueAsNumber: true })}
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-3" />
+            className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" />
           <br />
           <label htmlFor="title">Category</label>
           <Controller
@@ -67,7 +67,7 @@ function ProductForm() {
             rules={{ required: true }}
             defaultValue="Otros" // Valor por defecto
             render={({ field }) => (
-              <select {...field} className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-3">
+              <select {...field} className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2">
                 <option value="Gomitas">Gomitas</option>
                 <option value="Galletas">Galletas</option>
                 <option value="Dulces de leche">Dulces de leche</option>
@@ -78,7 +78,9 @@ function ProductForm() {
             )} />
 
           <br />
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Register</button>
+          <div className="flex items-center justify-center py-2">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-20 border border-blue-700 rounded">Register</button>
+          </div>
         </form>
       </div>
     </div><>

@@ -18,7 +18,7 @@ function RegisterPage () {
     })
     return (
         <div className="h-[calc(100vh-100px)] flex items-center justify-center">
-            <div className="bg-zinc-800 max-w-md p-10 rounded-md ">
+            <div className="max-w-md w-full p-10 rounded-md border-solid border-2 border-zinc-900">
                 <h1 className="text-2xl font-bold text-center my-2">Register</h1>
                 {
                     registerErrors.map((error, i) => (
@@ -43,7 +43,7 @@ function RegisterPage () {
                                 message: 'You name must be menor to 150 characters'
                             }
                         })}
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='username'
+                        className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='username'
                         />
                         {
                             errors.username && (
@@ -66,7 +66,7 @@ function RegisterPage () {
                             message: 'This field must be number'
                         }
                         })}
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='Phone number'
+                        className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='Phone number'
                         />
                         {
                             errors.username && (
@@ -85,7 +85,7 @@ function RegisterPage () {
                             message: "This email is invalid"
                         }
                         })}
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='email'
+                        className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='email'
                         />
                         {
                             errors.email && (
@@ -104,7 +104,7 @@ function RegisterPage () {
                         message: 'Your password need minimun 8 characters'
                     }
                     })}
-                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='password'
+                    className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='password'
                     />
                         {
                             errors.password && (
@@ -112,10 +112,12 @@ function RegisterPage () {
                             )
                         }                
                     </div>
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Register</button>
+                    <div className='flex items-center justify-center py-3'>
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-20 border border-blue-700 rounded">Register</button>
+                    </div>
                 </form>
-                <p className="flex gap-x-2 justify-between ">
-                        You have account? <Link to={'/login'} className="text-sky-500">Sign in</Link>
+                <p className="flex gap-x-2 justify-between my-2">
+                        You have account? <Link to={'/login'} className="text-red-500">Sign in</Link>
                 </p>
             </div>
         </div>

@@ -36,13 +36,16 @@ function CheckoutForm() {
       <form id="payment-form" onSubmit={handleSubmit}>
         <PaymentElement id="payment-element" />
         <br />
+        <div className="flex items-center justify-center ">
           <button disabled={ isProcessing || !stripe || !elements } id="submit"
-          className=" bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 border border-green-700 rounded "
+          className=" bg-green-500 hover:bg-green-400 text-black font-bold py-2 px-20 border border-green-700 rounded"
           >
             <span id="button-text">
             {isProcessing ? "Processing ... " : "Pay now"}
             </span>
           </button>
+        </div>
+
           {message && <div id="payment-message">{message}</div>}
       </form>
     </div>

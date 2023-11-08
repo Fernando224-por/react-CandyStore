@@ -18,7 +18,7 @@ function LoginPage () {
     }, [isAuthenticated, navegate]) 
     return (
         <div className="h-[calc(100vh-100px)] flex items-center justify-center">
-            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md"> 
+            <div className="max-w-md w-full p-10 rounded-md border-solid border-2 border-zinc-900"> 
                 <h1 className="text-3xl font-bold text-center my-2">Login</h1>
                 {
                 singinErrors.map((error, i) => (
@@ -39,7 +39,7 @@ function LoginPage () {
                                 message: "This email is invalid"
                             }
                         })}
-                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='email'
+                        className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='email'
                         />
                         {
                             errors.email && (
@@ -58,7 +58,7 @@ function LoginPage () {
                         message: 'Your password need minimun 8 characters'
                     }
                     })}
-                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder='password'
+                    className="w-full bg-zinc-200 text-black px-4 py-2 rounded-md my-2" placeholder='password'
                     />
                         {
                             errors.password && (
@@ -66,12 +66,12 @@ function LoginPage () {
                             )
                         }                
                     </div>
-                    <div className=" flex items-center justify-center">
-                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Login</button>
+                    <div className="flex items-center justify-center py-2">
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-40 border border-blue-700 rounded">Login</button>
                     </div>
                 </form>
                 <p className="flex gap-x-2 justify-between my-3">
-                    Do not have account? <Link to={'/register'} className="text-sky-500">Sign up</Link>
+                    Do not have account? <Link to={'/register'} className="text-red-500">Sign up</Link>
                 </p>
             </div>
         </div>
