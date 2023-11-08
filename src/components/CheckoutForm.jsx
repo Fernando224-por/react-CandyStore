@@ -20,7 +20,7 @@ function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/completion`,
+        return_url: `${window.location.origin}/`,
       },
     });
     if (error.type === "card_error" || error.type === "validation_error") {
@@ -32,11 +32,13 @@ function CheckoutForm() {
   }
   return (
     <>
-    <div>PaymentComponent</div>
     <div>
       <form id="payment-form" onSubmit={handleSubmit}>
         <PaymentElement id="payment-element" />
-          <button disabled={ isProcessing || !stripe || !elements } id="submit">
+        <br />
+          <button disabled={ isProcessing || !stripe || !elements } id="submit"
+          className=" bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 border border-green-700 rounded "
+          >
             <span id="button-text">
             {isProcessing ? "Processing ... " : "Pay now"}
             </span>

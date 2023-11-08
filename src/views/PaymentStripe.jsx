@@ -3,6 +3,7 @@ import CheckoutForm from "../components/CheckoutForm.jsx"
 import { usePayment } from "../context/paymentContext.jsx"
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
+import '../utils/payment.css'
 function PaymentStripe() {
   const { payment, secretKey } = usePayment()
 
@@ -23,15 +24,18 @@ function PaymentStripe() {
   }, [])
   return (
     <>
-    <div className="text-center my-5 text-2xl">
-        <h1>Payment with stripe :D</h1>
-    </div>
-    {
+    <div className="h-[calc(100vh-100px)] flex items-center justify-center">
+      <div className="bg-white/100 max-w-md w-full p-10 rounded-md ">
+      <h1 className="text-3xl font-bold text-center my-2 text-black">Confirm you buy</h1>
+            {
             stripePromise && clientSecret && (
                 <Elements stripe={stripePromise} options={{ clientSecret }} >
                     <CheckoutForm/>
                 </Elements>
             )}
+      </div>
+
+    </div>
     </>
     
   )
